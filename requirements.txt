@@ -2,6 +2,6 @@ Flask==1.0.2
 Flask-Session==0.3.1
 Jinja2==2.10.1
 requests==2.21.0
-Werkzeug==0.14.1
+Werkzeug==0.15.3
 python-socketio==3.0.1
-Werkzeug==0.14.1
+Werkzeug==0.15.3
