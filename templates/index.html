@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{%block head%}
+    <script src="/static/index.js"></script>    
+    
+    <link rel="stylesheet" href="/static/style.css">
+{%endblock%}
+
+{%block body%}
+<main class="container p-5">
+
+    <div class="form_group">
+        <h3>hello {{username}} !, search existing rooms or create a new one .</h3>
+            <form action="/create" method="POST">
+                <input type="text" name="roomname" class="form-control new_room_name">
+                <button type="submit" class="form-control">create</button>
+            </form>
+
+            <button class="search" type="submit">
+                <img src="/static/search-white-18dp.svg" alt="">
+            </button>
+    </div>
+            
+    <div class="rooms">
+        <img src="/static/expand_more-24px.svg" alt="">
+    </div>
+
+</main>
+    
+{%endblock%}
+

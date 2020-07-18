@@ -1,0 +1,4 @@
+FLASK_APP=application.py
+FLASK_DEBUG=1
+LC_ALL=C.UTF-8
+LANG=C.UTF-8

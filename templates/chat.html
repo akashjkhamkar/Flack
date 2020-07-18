@@ -1,0 +1,205 @@
+{% extends "layout.html" %}
+    
+{%block head%}
+    <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
+
+    <script src="/static/chat.js"></script>
+    
+    <style>
+        body , html{
+            height: 100%;
+            margin: 0;
+            padding: 0; 
+        }
+        .logo{
+            display: flex;
+            flex-direction: row;
+        }
+        .roomname{
+            margin: auto;
+        }
+        .chat-window-container{
+            position: fixed;
+            top: 50px; right: 0; bottom: 0; left: 0;
+            /* border: 15px solid orange; */
+        }
+        .chat-window{
+            position: absolute;
+            top: 10px; right: 0; left: 0; bottom: 0;
+            width: 70%;
+            margin: auto;
+            /* border: 15px solid lightskyblue; */
+        }
+        .input-container{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .filename{
+            word-wrap: break-word;
+            text-align: center;
+            
+            border: 1px solid rgb(0,0,0,0.07);
+            border-radius: 16px;
+            display: none;
+
+        }
+        .input{
+            border: 1px solid rgb(0,0,0,0.07);
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+            
+            top: 0px; right: 0; bottom: 0; left: 0;
+            margin: auto;
+            height: 80px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        .fileicon_container , .send , .filesend , .delete{
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            border: none;
+            background: none;
+            margin: auto;
+        }
+
+        .fileicon_container{
+            display: flex;
+            justify-content: center;
+        }
+
+        .fileicon , .sendicon , .delete{
+            opacity: 0.6;
+        }
+        .fileicon:hover , .sendicon:hover , .delete:hover{
+            cursor: pointer;
+            opacity: 1;
+        }
+        .file_select{
+            display: none;
+        }
+        .fresh_message{
+            border-radius: 16px;
+            border-style: none;
+            border: #afafaf 1px solid;
+            margin: auto;
+            height: 70%;
+            width: 60%;
+
+            padding: 0 13px 0 13px;
+        }
+        .messages-container{
+            position: absolute;
+            top: 0px; right: 0; bottom: 84px; left: 0;
+            margin: auto;
+
+            display: flex;
+            flex-direction: column;
+
+            scroll-behavior: smooth;
+
+            overflow-y: scroll;
+        }    
+        .message2 , .message1{
+            position: relative;
+            padding: 8px 10px;
+            max-width: 60%;
+            word-wrap: break-word;
+            border-radius: 18px;
+        }
+        .message1{
+            align-self: flex-end;
+            margin: 8px 8px 15px 0;
+            background: purple;
+            color: #eceff1 !important;
+        }
+        .message2{
+            align-self: flex-start;
+            margin: 8px 0px 15px 8px;
+            background: rgb(0,0,0,0.05);
+            color: #666666 !important;
+        }
+
+        .message-details{
+            display: flex;
+            flex-direction: row;
+            justify-content:space-between;
+        }
+        .user{
+            color: #3b3b3b;
+            font: 20px;
+            font-weight: 500;
+
+            padding-left: 3px;
+        }
+        .time{
+            font-size: 13px;
+        }
+        .linkmsgclass{
+            text-decoration: none;
+            color: inherit;
+            padding-left: 5px;
+        }
+        .linkmsg{
+            text-align: center;
+        }
+        .imgmsg{
+            display: inline-block;
+            max-width: 100%;
+        }
+
+        @media (max-width: 768px){
+            .chat-window{
+                width: 100%;
+            }
+            .input{
+                   height: 60px; 
+                }
+            .messages-container{
+                bottom: 63px;        
+            }
+        }
+    </style>
+{%endblock%}
+
+{%block body%}
+    <div class="chat-window-container">
+        <div class="chat-window">
+                
+            <div class="messages-container">
+            </div>
+
+            <div class="input-container">
+                <div class="filename"></div>
+                <div class="input">
+                    <label class="fileicon_container" for="file_select">
+                        <img class="fileicon" src="/static/attachment-24px.svg" alt="">
+                    </label>
+
+                    <input id="file_select" type="file" class="file_select">
+                        
+                    <input type="text" name="" class="fresh_message" placeholder="Send a message">
+                    
+                    <button class="send" type="submit">
+                        <img class="sendicon" src="/static/send-24px.svg" alt="send">
+                    </button>
+                    <button class="filesend" type="submit">
+                        <img class="sendicon" src="/static/send-24px.svg" alt="send">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var username = "{{username}}";
+        var roomname = "{{roomname}}";
+        var messages = {{messages | safe}};
+        console.log(messages);
+    </script>
+{%endblock%}

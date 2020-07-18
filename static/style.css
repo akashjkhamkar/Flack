@@ -1,0 +1,68 @@
+        html , body {
+            height: 100%;
+            width: 100%;
+        }
+        main a{
+            text-decoration: none;
+        }
+        main .form_group{
+            display: block;
+            text-align: center;
+            margin: auto;
+        }
+        main .form-control {
+            display: inline-block;
+            width: auto;
+        }
+
+        main .form-control:focus {
+            border-color: #3b3b3b;
+            box-shadow: 0 0 0 0 #3b3b3b;
+        } 
+
+        .rooms{
+            display: flex;
+            flex-direction: column;
+        }
+        .room{
+            display: inline-block;
+            width: auto;
+            margin: auto;
+            margin-top: 10px;
+            padding: 10px;
+            overflow-wrap: break-word;
+
+            background-color: #3B3B3B;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .roomlinks{
+            margin: auto;
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+        }
+
+        .room:hover , .room:active{
+            color: #3B3B3B;
+            background: #ECECEC;
+            text-decoration: none;
+            border: 1px #3B3B3B solid;
+        }
+
+        .flash{
+            padding-top: 20px;
+        }
+
+        .search{
+            background: rgb(78, 0, 78);
+            height: 40px;
+            width: 40px;
+            border: none;
+            border-radius: 50%;
+            margin-top: 8px;
+        }

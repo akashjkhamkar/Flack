@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    {%block head%}
+    {%endblock%}
+    <title>Document</title>
+    
+    <style>
+        .logout{
+            color: black;
+            text-decoration: none;
+        }
+        .navusername{
+            opacity: 0.5;
+        }
+        .navbar-brand{
+            color:rgb(78, 0, 78) !important;
+        }
+        .logo{
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 30px;
+        }
+    </style>
+</head>
+<body>
+    {%if username%}
+        <nav class="navbar navbar-light bg-light" style="border-bottom: 1px #3B3B3B solid">
+            <a href="/" class="navbar-brand home">flack</a>
+            
+            {%if roomname%}
+            <div class="logo">
+                <span class="roomname">{{roomname}}</span>
+
+                {%if owner == username%}
+                <button class="delete">
+                    <img src="/static/delete_outline-24px.svg" alt="">
+                </button>
+                {%endif%}
+
+            </div>
+            {%else%}
+            <img class="logo" src="/static/chat-black-18dp.svg" alt="">
+            {%endif%}                
+            
+            <div>
+                <span class="navusername">{{username}} | </span>
+                <a href="/signin" class="logout">log out</a>
+            </div>
+        </nav>
+    {%else%}
+    <nav class="navbar navbar-light bg-light justify-content-between" style="border-bottom: 1px #3B3B3B solid">
+        <a class="navbar-brand mx-auto">flack</a>
+    </nav>
+    {%endif%}
+
+
+    {%block body%}
+    
+    {%endblock%}
+</body>
+</html>

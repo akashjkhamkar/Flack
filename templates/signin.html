@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{%block head%}
+<link rel="stylesheet" href="/static/style.css">
+
+
+<style>
+  ul{
+    word-wrap: break-word;
+    text-align: justify;  /* For Edge */
+
+    margin-top: 10px;
+  }
+
+</style>
+{%endblock%}
+
+{%block body%}
+
+<main class="container p-5">
+  <div class="form_group my-auto">
+    <form action="/signin" method="POST">
+      <img src="/static/person-24px.svg" alt="">
+      <h4>Enter your username and sign in to start chatting!</h4>
+          <input type="text" class="form-control" id="username" name="username" autofocus aria-describedby="userHelp" placeholder="username" required>
+          <input type="password" class="form-control" name="password" placeholder="password" required>
+          <button class="form-control" type="submit">Sign In</button>
+        </form>
+        
+        <ul>
+          <li>
+            <small id="userHelp" class="form-text text-muted">if you are unable to signin , maybe username is already taken , try a different one !</small>
+          </li>
+          <li>
+            <small id="userHelp" class="form-text text-muted">once you login with unique username , you can comeback anytime and login , the username is yours only !</small>
+          </li>
+        </ul>
+      <!-- for flash messages -->
+      <div class="flash">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class=flashes>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+        {% endwith %}
+      </div>
+
+  </div>
+
+</main>
+
+{%endblock%}
