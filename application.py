@@ -2,9 +2,7 @@ import os
 import requests
 
 import datetime
-from flask_cors import CORS
 
-from flask_session import Session
 from flask import Flask, jsonify, session , render_template, request , redirect , flash
 from flask_socketio import SocketIO, emit , leave_room , join_room
 
@@ -13,13 +11,9 @@ from helpers import login_required
 
 app = Flask(__name__)
 app.config['SESSION_TYPE'] = 'filesystem'
-app.config["SECRET_KEY"] = "my secret key"
+app.config["SECRET_KEY"] = "my secret key"  
 
 
-# cors = CORS(app, resources={r"/foo": {"origins": "http://localhost:5000"}})
-
-
-Session(app)
 socketio = SocketIO(app)
 
 active = []

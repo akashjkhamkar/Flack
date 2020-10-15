@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let res = JSON.parse(request.response);
                 let results = res.results;
                 const rooms = document.querySelector(".rooms");
+                rooms.innerHTML = "";
 
                 i = 0;
                 while(i < results.length){
