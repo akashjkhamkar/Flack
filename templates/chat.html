@@ -197,9 +197,7 @@
     </div>
 
     <script>
-        var username = "{{username}}";
-        var roomname = "{{roomname}}";
-        var messages = {{messages | safe}};
-        console.log(messages);
+        var username = "{{username | safe}}";
+        var roomname = "{{roomname | safe }}";
     </script>
 {%endblock%}
