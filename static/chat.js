@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
         socket.on("announce msg", data => {
             console.log(data);
             addmessage(data);
-            document.querySelector(".messages-container").scrollTo(0,document.body.scrollHeight);
+            document.querySelector(".messages-container").scrollTo(0,document.querySelector(".messages-container").scrollHeight);
         })
     })
 
