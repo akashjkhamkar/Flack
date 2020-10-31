@@ -1,7 +1,9 @@
-https://flack-xatriya.herokuapp.com/room/nigahood
+https://flack-xatriya.herokuapp.com/
 
 # Flack---simple-chat-app
 flack | a chat app made for teams using socketio and flask
+
+![alt text](https://github.com/xatriya/Flack---simple-chat-app/static/image.png?raw=true)
 
 ## installation
 
