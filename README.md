@@ -1,6 +1,7 @@
 https://flack-xatriya.herokuapp.com/
 
-# Flack---simple-chat-app
+# Flack
+a simple-chat-app
 flack | a chat app made for teams using socketio and flask
 
 ![alt text](/static/image.png)
