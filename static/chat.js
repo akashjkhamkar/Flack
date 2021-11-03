@@ -132,10 +132,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         document.querySelector(".filesend").onclick = () => {
+            document.querySelector(".filename").style.display = "none"
             file = document.querySelector(".file_select").files[0];
-
-            document.querySelector(".file_select").value = ""
-            document.querySelector(".filename").innerHTML = ""
+            document.querySelector(".file_select").value = "";
 
             var fileReader = new FileReader();
             fileReader.readAsDataURL(file)
@@ -153,6 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.querySelector(".send").onclick = () => {
             let msg = document.querySelector(".fresh_message").value;
+            document.querySelector(".filename").style.display = "none"
             
             console.log("sending .. " , msg)
 
@@ -175,11 +175,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         document.querySelector(".fresh_message").onclick = () => {
-            document.querySelector(".send").style.display = ""
+            document.querySelector(".send").style.display = "block"
             document.querySelector(".filesend").style.display = "none"
             document.querySelector(".filename").style.display = "none"
 
-            document.querySelector(".file_select").innerHTML = "block"
+            document.querySelector(".file_select").innerHTML = ""
 
         }
 
