@@ -146,9 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     type: file.type,
                     size: file.size,
                     binary: arrayBuffer
-                }, () => {
-                    document.querySelector(".filename").style.display = "none"
-                });
+                }
             }
         };
 
