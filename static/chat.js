@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         document.querySelector(".filesend").onclick = () => {
-            document.querySelector(".filename").style.display = "none"
+            document.querySelector(".filename").innerHTML = "Sending the file.. please wait, text messages will be queued after the image"
             file = document.querySelector(".file_select").files[0];
             document.querySelector(".file_select").value = "";
 
@@ -146,6 +146,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     type: file.type,
                     size: file.size,
                     binary: arrayBuffer
+                }, () => {
+                    document.querySelector(".filename").style.display = "none"
                 });
             }
         };
