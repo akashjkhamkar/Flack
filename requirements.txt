@@ -6,6 +6,6 @@ Werkzeug>=0.15.3
 Flask-SocketIO>=4.2.1
 python-socketio>=4.3.0
 python-dotenv
-gunicorn
-eventlet 
+gunicorn==20.1.0
+eventlet==0.30.2 
 gevent-websocket
