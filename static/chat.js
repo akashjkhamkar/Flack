@@ -146,13 +146,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     type: file.type,
                     size: file.size,
                     binary: arrayBuffer
-                }
+                }, () => {
+                    console.log("sent")
+                })
             }
         };
 
         document.querySelector(".send").onclick = () => {
             let msg = document.querySelector(".fresh_message").value;
-            document.querySelector(".filename").style.display = "none"
             
             console.log("sending .. " , msg)
 
@@ -177,10 +178,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector(".fresh_message").onclick = () => {
             document.querySelector(".send").style.display = "block"
             document.querySelector(".filesend").style.display = "none"
+            
             document.querySelector(".filename").style.display = "none"
-
             document.querySelector(".file_select").innerHTML = ""
-
         }
 
         if(document.querySelector(".delete")){
