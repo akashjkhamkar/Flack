@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
     
 {%block head%}
-    <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
-
+    <!-- <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script> -->
+    <script src="https://cdn.socket.io/4.3.2/socket.io.min.js" integrity="sha384-KAZ4DtjNhLChOB/hxXuKqhMLYvx3b5MlT55xPEiNmREKRzeEm+RVPlTnAn0ajQNs" crossorigin="anonymous"></script>
     <script src="/static/chat.js"></script>
     
     <style>
@@ -35,6 +35,12 @@
             bottom: 0;
             width: 100%;
         }
+
+        .messages-container::-webkit-scrollbar {
+            display: none;
+            /* for Chrome, Safari, and Opera */
+        }
+
         .filename{
             word-wrap: break-word;
             text-align: center;
@@ -130,6 +136,7 @@
             flex-direction: row;
             justify-content:space-between;
         }
+
         .user{
             color: #3b3b3b;
             font: 20px;
@@ -145,12 +152,28 @@
             color: inherit;
             padding-left: 5px;
         }
+
         .linkmsg{
             text-align: center;
         }
+
         .imgmsg{
             display: inline-block;
             max-width: 100%;
+        }
+
+        .filesend{
+            display: none;
+        }
+
+        .icons{
+            width: 30px;
+        }
+
+        input:focus { 
+            outline: none !important;
+            border: 2px solid;
+            border-color: #800080;
         }
 
         @media (max-width: 768px){
@@ -178,7 +201,7 @@
                 <div class="filename"></div>
                 <div class="input">
                     <label class="fileicon_container" for="file_select">
-                        <img class="fileicon" src="/static/attachment-24px.svg" alt="">
+                        <img class="fileicon icons" src="/static/attachment-24px.svg" alt="">
                     </label>
 
                     <input id="file_select" type="file" class="file_select">
@@ -186,10 +209,11 @@
                     <input type="text" name="" class="fresh_message" placeholder="Send a message">
                     
                     <button class="send" type="submit">
-                        <img class="sendicon" src="/static/send-24px.svg" alt="send">
+                        <img class="sendicon icons" src="/static/send-24px.svg" alt="send">
                     </button>
+                 
                     <button class="filesend" type="submit">
-                        <img class="sendicon" src="/static/send-24px.svg" alt="send">
+                        <img class="sendicon icons" src="/static/send-24px.svg" alt="send">
                     </button>
                 </div>
             </div>

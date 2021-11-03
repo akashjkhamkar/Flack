@@ -10,6 +10,10 @@
     <title>Document</title>
     
     <style>
+        #userlogout{
+            display: flex;
+            flex-direction: column;
+        }
         .logout{
             color: black;
             text-decoration: none;
@@ -49,8 +53,8 @@
             <img class="logo" src="/static/chat-black-18dp.svg" alt="">
             {%endif%}                
             
-            <div>
-                <span class="navusername">{{username}} | </span>
+            <div id="userlogout">
+                <span class="navusername">{{username}} </span>
                 <a href="/signin" class="logout">log out</a>
             </div>
         </nav>

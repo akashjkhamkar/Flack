@@ -96,10 +96,8 @@ def create():
         rooms.append(room)
         roomMessages[room] = []
     else:
-        return "error"
+        return "Room already exists ! use a different name"
     return redirect("/room/" + room)
-
-
 
 @app.route("/getMessages/<string:roomname>" , methods=["GET"])
 @login_required

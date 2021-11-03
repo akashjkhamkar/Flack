@@ -17,6 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const rooms = document.querySelector(".rooms");
                 rooms.innerHTML = "";
 
+                
+                if(results.length == 0){
+                    rooms.innerHTML = "Not found : (";
+                }
+
                 i = 0;
                 while(i < results.length){
                     const room = document.createElement("div");

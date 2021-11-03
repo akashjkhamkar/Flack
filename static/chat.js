@@ -168,10 +168,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector(".file_select").onchange = () => {
             filename = document.querySelector(".filename");
             filename.innerHTML = document.querySelector(".file_select").files[0].name + " file is selected "; 
-            filename.style.display = "";
-
+            
+            filename.style.display = "block";
             document.querySelector(".send").style.display = "none";
-            document.querySelector(".filesend").style.display = "";
+            document.querySelector(".filesend").style.display = "block";
         }
 
         document.querySelector(".fresh_message").onclick = () => {
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector(".filesend").style.display = "none"
             document.querySelector(".filename").style.display = "none"
 
-            document.querySelector(".file_select").innerHTML = ""
+            document.querySelector(".file_select").innerHTML = "block"
 
         }
 

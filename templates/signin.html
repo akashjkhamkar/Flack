@@ -7,46 +7,82 @@
 <style>
   ul{
     word-wrap: break-word;
-    text-align: justify;  /* For Edge */
-
+    text-align: justify; 
+    width: 70%;
     margin-top: 10px;
   }
 
+  .signinDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .signinContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    padding: 10px;
+  }
+
+  h4{
+    text-align: center;
+  }
+
+  button{
+    background: black;
+    color: white;
+  }
+
+  @media (max-width: 600px) {
+    form{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
 </style>
 {%endblock%}
 
 {%block body%}
 
-<main class="container p-5">
-  <div class="form_group my-auto">
+<main class="signinContainer">
+  <div class="signinDiv">
+
+    <img src="/static/person-24px.svg" alt="">
+    <h4>Enter your username and sign in to start chatting!</h4>
     <form action="/signin" method="POST">
-      <img src="/static/person-24px.svg" alt="">
-      <h4>Enter your username and sign in to start chatting!</h4>
-          <input type="text" class="form-control" id="username" name="username" autofocus aria-describedby="userHelp" placeholder="username" required>
-          <input type="password" class="form-control" name="password" placeholder="password" required>
-          <button class="form-control" type="submit">Sign In</button>
-        </form>
-        
-        <ul>
-          <li>
-            <small id="userHelp" class="form-text text-muted">if you are unable to signin , maybe username is already taken , try a different one !</small>
-          </li>
-          <li>
-            <small id="userHelp" class="form-text text-muted">once you login with unique username , you can comeback anytime and login , the username is yours only !</small>
-          </li>
+      <input type="text" class="form-control" id="username" name="username" autofocus aria-describedby="userHelp" placeholder="username" required>
+      <input type="password" class="form-control" name="password" placeholder="password" required>
+      <button type="submit" class="btn btn-dark">Log in</button>
+    </form>
+
+    <ul>
+      <li>
+        <small id="userHelp" class="form-text text-muted">If you are unable to signin , maybe username is already taken , try a different one !</small>
+      </li>
+      <li>
+        <small id="userHelp" class="form-text text-muted">Once you login with unique username , you can comeback anytime and login , the username will only be yours !</small>
+      </li>
+    </ul>
+
+
+    <!-- for flash messages -->
+    <div class="flash">
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
         </ul>
-      <!-- for flash messages -->
-      <div class="flash">
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-          <ul class=flashes>
-          {% for message in messages %}
-            <li>{{ message }}</li>
-          {% endfor %}
-          </ul>
-        {% endif %}
-        {% endwith %}
-      </div>
+      {% endif %}
+      {% endwith %}
+    </div>
 
   </div>
 

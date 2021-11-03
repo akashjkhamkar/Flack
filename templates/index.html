@@ -7,24 +7,47 @@
 {%endblock%}
 
 {%block body%}
-<main class="container p-5">
 
-    <div class="form_group">
-        <h3>hello {{username}} !, search existing rooms or create a new one .</h3>
-            <form action="/create" method="POST">
-                <input type="text" name="roomname" class="form-control new_room_name">
-                <button type="submit" class="form-control">create</button>
-            </form>
+<style>
+    .homeDivContainer{
+        min-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+    }
 
-            <button class="search" type="submit">
-                <img src="/static/search-white-18dp.svg" alt="">
-            </button>
+    .homeDiv{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    #greeter{
+        text-align: center;
+    }
+</style>
+
+<main class="homeDivContainer">
+    <div class="homeDiv">
+
+        <div id="greeter">
+            <h2>Hello {{username}}!</h2>
+            Search existing rooms or create a new one .
+        </div>
+        <form action="/create" method="POST">
+            <input type="text" name="roomname" class="form-control new_room_name">
+            <button type="submit" class="form-control">create</button>
+        </form>
+
+        <button class="search">
+            <img src="/static/search-white-18dp.svg" alt="">
+        </button>
+
+        <div class="rooms"></div>
     </div>
-            
-    <div class="rooms">
-        <img src="/static/expand_more-24px.svg" alt="">
-    </div>
-
 </main>
     
 {%endblock%}
