@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     size: file.size,
                     binary: arrayBuffer
                 }, () => {
-                    console.log("sent")
+                    document.querySelector(".filename").style.display = "none"
                 })
             }
         };
@@ -179,7 +179,6 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector(".send").style.display = "block"
             document.querySelector(".filesend").style.display = "none"
             
-            document.querySelector(".filename").style.display = "none"
             document.querySelector(".file_select").innerHTML = ""
         }
 
